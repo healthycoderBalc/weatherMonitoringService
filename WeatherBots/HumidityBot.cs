@@ -9,7 +9,7 @@ using weatherMonitoringService.WeatherStations;
 
 namespace weatherMonitoringService.WeatherBots
 {
-    public class HumidityBot : IWeatherHumidityBot
+    public class HumidityBot : IWeatherBot
     {
         public string BotName { get; set; }
         public bool Enabled { get; set; }
@@ -38,7 +38,7 @@ namespace weatherMonitoringService.WeatherBots
             }
         }
 
-        private bool CheckingThreshold(WeatherStation weatherStation)
+        public bool CheckingThreshold(WeatherStation weatherStation)
         {
             bool highHumidity = weatherStation.Humidity > HumidityThreshold;
             bool lowHumidity = weatherStation.Humidity < HumidityThreshold;
