@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using weatherMonitoringService.SubjectObserverPattern;
 using weatherMonitoringService.WeatherBots;
+using weatherMonitoringService.WeatherStations.FileFormats;
 
 namespace weatherMonitoringService.WeatherStations
 {
     public class WeatherStation : IWeatherStation
     {
         private List<IObserver> _weatherBots;
+        private readonly IWeatherStationFileFormat _fileFormat;
 
         private float _temperature;
         private float _humidity;
@@ -38,8 +41,9 @@ namespace weatherMonitoringService.WeatherStations
         public string Location { get; set; }
 
 
-        public WeatherStation()
+        public WeatherStation(IWeatherStationFileFormat fileFormat)
         {
+            _fileFormat = fileFormat;
             _weatherBots = new List<IObserver>();
             _location = string.Empty;
         }
@@ -55,5 +59,11 @@ namespace weatherMonitoringService.WeatherStations
                 observer.Update(this, propertyName);
             }
         }
+
+        public void GetWeatherInformation()
+        {
+            _fileFormat.GetWeatherInformation();
+        }
+
     }
 }

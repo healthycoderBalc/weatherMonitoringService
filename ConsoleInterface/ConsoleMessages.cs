@@ -17,5 +17,16 @@ namespace weatherMonitoringService.ConsoleInterface
             Console.ReadLine();
         }
 
+        public static void PrintLoadedBots(List<IWeatherBot> loadedBots)
+        {
+            Console.WriteLine("*************************");
+            foreach (IWeatherBot bot in loadedBots)
+            {
+                Console.WriteLine(bot.ToString());
+            }
+            Console.WriteLine("Bots loaded successfully!");
+            Console.WriteLine("*************************");
+            Console.ReadLine();
+        }
     }
 }
