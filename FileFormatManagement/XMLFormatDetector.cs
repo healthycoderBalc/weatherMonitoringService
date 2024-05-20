@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 
-namespace weatherMonitoringService.WeatherStations.FileFormats
+namespace weatherMonitoringService.FileFormatManagement
 {
-    public class XMLFormatDetector: IFormatDetector
+    public class XMLFormatDetector : IFormatDetector
     {
         public bool IsThisFormat(string input)
         {

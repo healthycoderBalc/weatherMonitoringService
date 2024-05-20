@@ -1,37 +1,38 @@
-﻿using weatherMonitoringService.BotConfiguration;
+﻿using System.Collections.Generic;
 using weatherMonitoringService.ConsoleInterface;
+using weatherMonitoringService.FileFormatManagement;
 using weatherMonitoringService.WeatherBots;
+using weatherMonitoringService.WeatherBots.BotConfiguration;
 using weatherMonitoringService.WeatherStations;
 using weatherMonitoringService.WeatherStations.FileFormats;
+using weatherMonitoringService.WeatherStations.WeatherStationInterfaces;
 
 namespace weatherMonitoringService
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            List<IWeatherBot> loadedBots = ReadConfigurationFile.GetAllBots();
-            ConsoleMessages.PrintLoadedBots(loadedBots);
+            List<IWeatherBot> loadedBots = WeatherBotManager.LoadBots();
 
-            Console.WriteLine("Enter weather data: ");
-            string? weatherData = Console.ReadLine();
-            Type formatDetectorType = typeof(IFormatDetector);
-            string? weatherDataFormat = FormatManager.DetectFileFormat(weatherData, formatDetectorType, "IsThisFormat");
-
-            Console.WriteLine($"weatherDataFormat: {weatherDataFormat}");
-
-            var strategy = new JsonWeatherStation();
-            WeatherStation weatherStation = new(strategy);
-            foreach (IWeatherBot bot in loadedBots)
+            WeatherStation? weatherStation = null;
+            string weatherInformation;
+            do
             {
-                weatherStation.Attach(bot);
-            }
+                weatherInformation = WeatherStationManager.GetWeatherInformation();
+                if (weatherInformation != string.Empty)
+                {
 
+                    weatherStation = WeatherStationFileFormatManager.DetectWeatherStationFileFormat(weatherStation, weatherInformation);
 
-            //weatherStation.Location = "Buenos Aires";
-            //weatherStation.Temperature = 35.0f; // SunBot
-            //weatherStation.Humidity = 85.0f; // RainBot
-            //weatherStation.Temperature = -3.5f; // SnowBot
+                    WeatherBotManager.AttachBotsToWeatherStation(weatherStation, loadedBots);
+
+                    WeatherStationManager.LoadValuesToWeatherStation(weatherStation, weatherInformation);
+                }
+            } while (weatherInformation != string.Empty);
         }
+
+
     }
 }
+

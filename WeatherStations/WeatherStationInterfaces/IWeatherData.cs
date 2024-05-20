@@ -5,14 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using weatherMonitoringService.SubjectObserverPattern;
 
-namespace weatherMonitoringService.WeatherStations
+namespace weatherMonitoringService.WeatherStations.WeatherStationInterfaces
 {
-    public interface IWeatherStation : ISubject
+    public interface IWeatherData : ISubject
     {
         float Temperature { get; set; }
         float Humidity { get; set; }
         string Location { get; set; }
-
-        void GetWeatherInformation();
     }
 }

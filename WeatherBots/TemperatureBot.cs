@@ -12,11 +12,24 @@ namespace weatherMonitoringService.WeatherBots
 {
     public class TemperatureBot : IWeatherBot
     {
+        private float? _humidityThreshold;
+        public string PropertyMeasured { get; } = "Temperature";
         public string BotName { get; set; }
         public bool Enabled { get; set; }
-        public float TemperatureThreshold { get; set; }
+        public float? TemperatureThreshold { get; set; }
+
+        public float? HumidityThreshold
+        {
+            get { return _humidityThreshold; }
+            set { _humidityThreshold = null; }
+        }
         public string Message { get; set; }
 
+        public TemperatureBot()
+        {
+            BotName = string.Empty;
+            Message = string.Empty;
+        }
 
         public TemperatureBot(string botName, bool enabled, float temperatureThreshold, string message)
         {
@@ -28,11 +41,11 @@ namespace weatherMonitoringService.WeatherBots
 
         public void Update(ISubject subject, string propertyName)
         {
-            if (subject is not WeatherStation weatherStation || propertyName != "Temperature")
+            if (subject is not WeatherStation weatherStation || propertyName != PropertyMeasured)
             {
                 return;
             }
-            if (propertyName == "Temperature")
+            if (propertyName == PropertyMeasured)
             {
                 bool performAction = CheckingThreshold(weatherStation);
                 PerformSpecificAction(performAction);
@@ -53,7 +66,7 @@ namespace weatherMonitoringService.WeatherBots
         private void PerformSpecificAction(bool performAction)
         {
             if (!performAction) return;
-            ConsoleMessages.BotMessage(this);
+            ConsoleInfoMessages.BotMessage(this);
         }
 
         public override string ToString()

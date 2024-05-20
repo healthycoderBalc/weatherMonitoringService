@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using weatherMonitoringService.SubjectObserverPattern;
 using weatherMonitoringService.WeatherBots;
 using weatherMonitoringService.WeatherStations.FileFormats;
+using weatherMonitoringService.WeatherStations.WeatherStationInterfaces;
 
 namespace weatherMonitoringService.WeatherStations
 {
@@ -17,7 +19,6 @@ namespace weatherMonitoringService.WeatherStations
 
         private float _temperature;
         private float _humidity;
-        private string _location;
         public float Temperature
         {
             get { return _temperature; }
@@ -41,16 +42,26 @@ namespace weatherMonitoringService.WeatherStations
         public string Location { get; set; }
 
 
-        public WeatherStation(IWeatherStationFileFormat fileFormat)
+        public WeatherStation()
+        {
+            _weatherBots = [];
+            Location = string.Empty;
+        }
+
+        public WeatherStation(IWeatherStationFileFormat fileFormat) : this()
         {
             _fileFormat = fileFormat;
-            _weatherBots = new List<IObserver>();
-            _location = string.Empty;
+            
         }
 
         public void Attach(IObserver observer)
         {
             _weatherBots.Add(observer);
+        }
+
+        public void AttachRange(List<IObserver> observers)
+        {
+            _weatherBots.AddRange(observers);
         }
         public void Notify(string propertyName)
         {
@@ -60,10 +71,9 @@ namespace weatherMonitoringService.WeatherStations
             }
         }
 
-        public void GetWeatherInformation()
+        public void AddWeatherInformation(WeatherStation weatherStation,string weatherInformation)
         {
-            _fileFormat.GetWeatherInformation();
+            _fileFormat.AddWeatherInformation(weatherStation,weatherInformation);
         }
-
     }
 }

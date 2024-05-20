@@ -7,7 +7,7 @@ using weatherMonitoringService.WeatherBots;
 
 namespace weatherMonitoringService.ConsoleInterface
 {
-    public static class ConsoleMessages
+    public static class ConsoleInfoMessages
     {
         public static void BotMessage(IWeatherBot bot)
         {
@@ -27,6 +27,16 @@ namespace weatherMonitoringService.ConsoleInterface
             Console.WriteLine("Bots loaded successfully!");
             Console.WriteLine("*************************");
             Console.ReadLine();
+        }
+
+        public static void PrintWeatherStationFileFormat(string weatherDataFormat)
+        {
+            Console.WriteLine($"The format of the Weather Data provided is: {weatherDataFormat}");
+        }
+
+        public static void PrintWeatherStation(string fileFormat)
+        {
+            Console.WriteLine($"The weather station is: {fileFormat}");
         }
     }
 }

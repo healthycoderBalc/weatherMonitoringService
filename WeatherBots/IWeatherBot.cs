@@ -1,13 +1,12 @@
 ﻿using weatherMonitoringService.SubjectObserverPattern;
+using weatherMonitoringService.WeatherBots.BotConfiguration;
 using weatherMonitoringService.WeatherStations;
 
 namespace weatherMonitoringService.WeatherBots
 {
-    public interface IWeatherBot : IObserver
+    public interface IWeatherBot : IObserver, IBaseWeatherBot, IConfigurationWeatherBot
     {
-        string BotName { get; set; }
-        bool Enabled { get; set; }
-        string Message { get; set; }
+        public string PropertyMeasured { get; }
         bool CheckingThreshold(WeatherStation weatherStation);
     }
 }

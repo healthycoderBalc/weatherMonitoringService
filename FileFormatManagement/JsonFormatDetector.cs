@@ -5,9 +5,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace weatherMonitoringService.WeatherStations.FileFormats
+namespace weatherMonitoringService.FileFormatManagement
 {
-    public class JsonFormatDetector: IFormatDetector
+    public class JsonFormatDetector : IFormatDetector
     {
         public bool IsThisFormat(string input)
         {
