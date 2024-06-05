@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="weatherMonitoringService.ConsoleInterface.ConsoleErrorMessages" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAEAAAAAAgAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>ConsoleInterface\ConsoleErrorMessages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.ConsoleInterface.ConsoleInfoMessages" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAABAAAAAAAAAAAAAAQAAAE=</HashCode>
+      <FileName>ConsoleInterface\ConsoleInfoMessages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.ConsoleInterface.ConsoleInputManager" Collapsed="true">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>ConsoleInterface\ConsoleInputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.FileFormatManagement.FormatManager" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>FileFormatManagement\FormatManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.FileFormatManagement.JsonFormatDetector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileFormatManagement\JsonFormatDetector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="weatherMonitoringService.FileFormatManagement.XMLFormatDetector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileFormatManagement\XMLFormatDetector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="weatherMonitoringService.ReflectionUtilities.GenericReflectionUtilities" Collapsed="true">
+    <Position X="2.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>ReflectionUtilities\GenericReflectionUtilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherBots.BotConfiguration.ReadConfigurationFile" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACgAAAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>WeatherBots\BotConfiguration\ReadConfigurationFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherBots.BotConfiguration.WeatherBotManager" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherBots\BotConfiguration\WeatherBotManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherBots.HumidityBot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAACIAIAEAACAAAAAAAAAAAAAAAAAIAAAACQ=</HashCode>
+      <FileName>WeatherBots\HumidityBot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherBots.TemperatureBot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAIAIAEAACAAAAAAAAAAAAAAAAAIAAAACQ=</HashCode>
+      <FileName>WeatherBots\TemperatureBot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherStations.FileFormats.JsonWeatherStation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherStations\FileFormats\JsonWeatherStation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherStations.FileFormats.WeatherStationFileFormatManager" Collapsed="true">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAEAAAAAAg=</HashCode>
+      <FileName>WeatherStations\FileFormats\WeatherStationFileFormatManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherStations.FileFormats.XMLWeatherStation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAgAAAAAAAIAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherStations\FileFormats\XMLWeatherStation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherStations.WeatherStation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAICAAABIIAAAABABAQAAAAEBAA=</HashCode>
+      <FileName>WeatherStations\WeatherStation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="weatherMonitoringService.WeatherStations.WeatherStationManager" Collapsed="true">
+    <Position X="6.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherStations\WeatherStationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weatherMonitoringService.Program" Collapsed="true">
+    <Position X="6.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="weatherMonitoringService.FileFormatManagement.IFormatDetector" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileFormatManagement\IFormatDetector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.SubjectObserverPattern.IObserver" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubjectObserverPattern\IObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.SubjectObserverPattern.ISubject" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>SubjectObserverPattern\ISubject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.WeatherBots.BotConfiguration.IConfigurationWeatherBot" Collapsed="true">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>WeatherBots\BotConfiguration\IConfigurationWeatherBot.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.WeatherBots.IBaseWeatherBot" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>WeatherBots\IBaseWeatherBot.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.WeatherBots.IWeatherBot" Collapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherBots\IWeatherBot.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.WeatherStations.WeatherStationInterfaces.IWeatherData" Collapsed="true">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAICAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>WeatherStations\WeatherStationInterfaces\IWeatherData.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.WeatherStations.WeatherStationInterfaces.IWeatherStation" Collapsed="true">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherStations\WeatherStationInterfaces\IWeatherStation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="weatherMonitoringService.WeatherStations.WeatherStationInterfaces.IWeatherStationFileFormat" Collapsed="true">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherStations\WeatherStationInterfaces\IWeatherStationFileFormat.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
