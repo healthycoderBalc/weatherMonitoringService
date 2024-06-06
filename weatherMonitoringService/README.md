@@ -1,1 +1,1 @@
-# weatherMonitoringService
+[![build and test](https://github.com/healthycoderBalc/weatherMonitoringService/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/healthycoderBalc/weatherMonitoringService/actions/workflows/build-and-test.yml)
