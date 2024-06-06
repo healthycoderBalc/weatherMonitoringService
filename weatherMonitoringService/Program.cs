@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
+using weatherMonitoringService.Bots;
 using weatherMonitoringService.ConsoleInterface;
-using weatherMonitoringService.FileFormatManagement;
-using weatherMonitoringService.WeatherBots;
-using weatherMonitoringService.WeatherBots.BotConfiguration;
-using weatherMonitoringService.WeatherStations;
-using weatherMonitoringService.WeatherStations.FileFormats;
-using weatherMonitoringService.WeatherStations.WeatherStationInterfaces;
+using weatherMonitoringService.DataFormats.Detector;
+using weatherMonitoringService.DataFormats.Parser;
+using weatherMonitoringService.Services;
+using weatherMonitoringService.Utilities;
 
 namespace weatherMonitoringService
 {
@@ -13,25 +12,27 @@ namespace weatherMonitoringService
     {
         public static void Main(string[] args)
         {
-            List<IWeatherBot> loadedBots = WeatherBotManager.LoadBots();
+            JsonFormatDetector jsonFormatDetector = new JsonFormatDetector();
+            XMLFormatDetector xmlFormatDetector = new XMLFormatDetector();
+            DataParserService dataParserService = new DataParserService(jsonFormatDetector, xmlFormatDetector);
+            ManageBotsLoading manageBotsLoading = new ManageBotsLoading();
+            WeatherBotRepository weatherBotRepository = new WeatherBotRepository(manageBotsLoading);
 
-            WeatherStation? weatherStation = null;
-            string weatherInformation;
+            ConsoleInfoMessages.PrintLoadedBots(weatherBotRepository.WeatherBots);
+
+            string inputData;
             do
             {
-                weatherInformation = WeatherStationManager.GetWeatherInformation();
-                if (weatherInformation != string.Empty)
+                inputData = ConsoleInputManager.ObtainWeatherData() ?? "";
+                IWeatherDataParser? parser = dataParserService.DetermineParser(inputData);
+                if (parser != null)
                 {
-
-                    weatherStation = WeatherStationFileFormatManager.DetectWeatherStationFileFormat(weatherStation, weatherInformation);
-
-                    WeatherBotManager.AttachBotsToWeatherStation(weatherStation, loadedBots);
-
-                    WeatherStationManager.LoadValuesToWeatherStation(weatherStation, weatherInformation);
+                    WeatherService weatherService = new WeatherService(weatherBotRepository, parser, inputData);
+                    weatherService.Start();
                 }
-            } while (weatherInformation != string.Empty);
-        }
 
+            } while (inputData != string.Empty);
+        }
 
     }
 }

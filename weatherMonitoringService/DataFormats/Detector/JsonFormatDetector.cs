@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
-using System.Xml.Linq;
-using System.Xml;
 
-namespace weatherMonitoringService.FileFormatManagement
+namespace weatherMonitoringService.DataFormats.Detector
 {
-    public class XMLFormatDetector : IFormatDetector
+    public class JsonFormatDetector : IFormatDetector
     {
         public bool IsThisFormat(string input)
         {
             try
             {
-                XElement.Parse(input);
+                JsonSerializer.Deserialize<JsonElement>(input);
                 return true;
             }
-            catch (XmlException)
+            catch (JsonException)
             {
                 return false;
             }

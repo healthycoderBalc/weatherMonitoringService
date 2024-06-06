@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using weatherMonitoringService.WeatherData;
 
-namespace weatherMonitoringService.SubjectObserverPattern
+namespace weatherMonitoringService.DataFormats.Parser
 {
-    public interface IObserver
+    public interface IWeatherDataParser
     {
-        void Update(WeatherDataModel weatherData);
+        WeatherDataModel Parse(string inputData);
     }
 }

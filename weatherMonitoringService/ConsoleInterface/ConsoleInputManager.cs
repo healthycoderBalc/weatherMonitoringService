@@ -6,6 +6,7 @@
         {
             Console.WriteLine("Enter weather data (or Hit Enter to Exit program): ");
             string? weatherData = Console.ReadLine();
+            Console.WriteLine();
             return weatherData;
         }
     }

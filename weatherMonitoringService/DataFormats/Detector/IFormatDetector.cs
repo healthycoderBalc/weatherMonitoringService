@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace weatherMonitoringService.FileFormatManagement
+namespace weatherMonitoringService.DataFormats.Detector
 {
     public interface IFormatDetector
     {
