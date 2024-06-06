@@ -6,11 +6,11 @@ using weatherMonitoringService.WeatherData;
 
 namespace weatherMonitoringService.Tests
 {
-    public class RainBotTests
+    public class SnowBotTests
     {
         private readonly Fixture _fixture;
 
-        public RainBotTests()
+        public SnowBotTests()
         {
             _fixture = new Fixture();
 
@@ -18,23 +18,23 @@ namespace weatherMonitoringService.Tests
 
         [Theory]
         [InlineAutoData]
-        public void ShouldBeActivatedWhenHumidityPassesThreshold(int threshold)
+        public void ShouldBeActivatedWhenTemperatureBelowThreshold(int threshold)
         {
             // Arrange
-            var rainBot = _fixture.Build<RainBot>()
-                .With(b => b.HumidityThreshold, threshold)
+            var snowBot = _fixture.Build<SnowBot>()
+                .With(b => b.TemperatureThreshold, threshold)
                 .With(b => b.Enabled, true)
                 .Create();
 
             var random = new Random();
-            double actualHumidityAboveThreshold = random.Next(threshold, int.MaxValue);
+            double actualTemperatureBelowThreshold = random.Next(int.MinValue, threshold);
 
             var weatherData = _fixture.Build<WeatherDataModel>()
-                .With(w => w.Humidity, actualHumidityAboveThreshold)
+                .With(w => w.Temperature, actualTemperatureBelowThreshold)
                 .Create();
 
             // Act
-            var isActivated = rainBot.CheckThreshold(weatherData);
+            var isActivated = snowBot.CheckThreshold(weatherData);
 
             // Assert
             Assert.True(isActivated);
@@ -43,23 +43,23 @@ namespace weatherMonitoringService.Tests
 
         [Theory]
         [InlineAutoData]
-        public void ShouldNotBeActivatedWhenHumidityBelowThreshold(int threshold)
+        public void ShouldNotBeActivatedWhenTemperatureAboveThreshold(int threshold)
         {
             // Arrange
-            var rainBot = _fixture.Build<RainBot>()
-                .With(b => b.HumidityThreshold, threshold)
+            var snowBot = _fixture.Build<SnowBot>()
+                .With(b => b.TemperatureThreshold, threshold)
                 .With(b => b.Enabled, true)
                 .Create();
 
             var random = new Random();
-            double actualHumidityBelowThreshold = random.Next(int.MinValue, threshold);
+            double actualTemperatureAboveThreshold = random.Next(threshold, int.MaxValue);
 
             var weatherData = _fixture.Build<WeatherDataModel>()
-                .With(w => w.Humidity, actualHumidityBelowThreshold)
+                .With(w => w.Temperature, actualTemperatureAboveThreshold)
                 .Create();
 
             // Act
-            var isActivated = rainBot.CheckThreshold(weatherData);
+            var isActivated = snowBot.CheckThreshold(weatherData);
 
             // Assert
             Assert.True(!isActivated);
